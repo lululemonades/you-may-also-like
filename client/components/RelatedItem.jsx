@@ -8,7 +8,7 @@ function RelatedItem (props) {
           className="banner-img"
           alt=""
           src={props.item.main}
-          onMouseOver={e => (e.currentTarget.src = `${props.item.hover}`)}
+          onMouseOver={e => (e.currentTarget.src = props.item.hover)}
           onFocus={e => (e.currentTarget.src = `${props.item.hover}`)}
           onMouseOut={e => (e.currentTarget.src = `${props.item.main}`)}
           onBlur={e => (e.currentTarget.src = `${props.item.main}`)}
