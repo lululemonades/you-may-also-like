@@ -1,29 +1,23 @@
 import React from 'react';
-import RelatedItemDetails from './RelatedItemDetails.jsx';
 
-const RelatedItem
-
-class RelatedItem extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {};
-  }
-
-  render () {
-    return (
-      <div>
+function RelatedItem (props) {
+  return (
+    <div className="banner-item">
+      <div className="image-wrapper">
         <img
+          className="banner-img"
           alt=""
-          src="http://www.reptilegardens.com/assets/images/gallery/images/rainbowlizard-a644bb7f9ee8.jpg"
-          onMouseOver={e => (e.currentTarget.src = 'http://www.reptilegardens.com/assets/images/gallery/images/agama_copy.jpg')}
-          onFocus={e => (e.currentTarget.src = 'http://www.reptilegardens.com/assets/images/gallery/images/agama_copy.jpg')}
-          onMouseOut={e => (e.currentTarget.src = 'http://www.reptilegardens.com/assets/images/gallery/images/rainbowlizard-a644bb7f9ee8.jpg')}
-          onBlur={e => (e.currentTarget.src = 'http://www.reptilegardens.com/assets/images/gallery/images/rainbowlizard-a644bb7f9ee8.jpg')}
+          src={props.item.main}
+          onMouseOver={e => (e.currentTarget.src = `${props.item.hover}`)}
+          onFocus={e => (e.currentTarget.src = `${props.item.hover}`)}
+          onMouseOut={e => (e.currentTarget.src = `${props.item.main}`)}
+          onBlur={e => (e.currentTarget.src = `${props.item.main}`)}
         />
-        <RelatedItemDetails />
+        <div className="color-picker">Color Picker</div>
       </div>
-    );
-  }
+      <div className="related-details">{props.item.title}</div>
+    </div>
+  );
 }
 
 export default RelatedItem;

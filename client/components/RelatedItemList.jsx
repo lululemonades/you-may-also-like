@@ -4,7 +4,9 @@ import RelatedItem from './RelatedItem.jsx';
 function RelatedItemList (props) {
   return (
     <div className="related-item-list">
-      <RelatedItem />
+      {props.items.map(function (item, index) {
+        return <RelatedItem item={item} key={item.id} />;
+      })}
     </div>
   );
 }
