@@ -1,14 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RelatedItemList from './components/RelatedItemList.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+import RelatedItemList from './components/RelatedItemList.jsx';
+
+const Body = styled.div`
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #fafafa;
+`;
+
+const Wrapper = styled.div`
+  padding: 2%;
+`;
+
+const YouMayHeader = styled.h1`
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: lighter;
+`;
 
 class YouMayAlsoLike extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       relateditems: [],
-      productId: 100
+      productId: 90
     };
   }
 
@@ -26,12 +42,14 @@ class YouMayAlsoLike extends React.Component {
 
   render () {
     return (
-      <div>
-        <div>
-          <h1 className='you-may-header'>You may also like</h1>
-        </div>
-        <RelatedItemList items={this.state.relateditems} />
-      </div>
+      <Body>
+        <Wrapper>
+          <div>
+            <YouMayHeader>You may also like</YouMayHeader>
+          </div>
+          <RelatedItemList items={this.state.relateditems} />
+        </Wrapper>
+      </Body>
     );
   }
 }

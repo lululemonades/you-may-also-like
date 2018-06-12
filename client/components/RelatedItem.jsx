@@ -1,12 +1,36 @@
 import React from 'react';
+import styled from 'styled-components';
 import ColorPicker from './ColorPicker.jsx';
+
+const RelatedTitle = styled.div`
+    position: relative;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: capitalize;
+    text-align: left;
+    margin: 3% 0;
+`;
+
+const RelatedPrice = styled.div`
+  position: relative;
+  font-size: 1rem;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+`;
+
+const BannerItem = styled.div`
+  margin-left: 2%;
+`;
 
 function RelatedItem (props) {
   return (
-    <div className="banner-item">
-      <div className="image-wrapper">
+    <BannerItem>
+      <ImageWrapper>
         <img
-          className="banner-img"
+          style={{ width: 300 }}
           alt=""
           src={props.item.main}
           onMouseOver={e => (e.currentTarget.src = props.item.hover)}
@@ -15,10 +39,10 @@ function RelatedItem (props) {
           onBlur={e => (e.currentTarget.src = props.item.main)}
         />
         <ColorPicker colors={props.item.color} />
-      </div>
-      <div className="related-title">{props.item.title}</div>
-      <div className="related-price">{props.item.price}</div>
-    </div>
+      </ImageWrapper>
+      <RelatedTitle>{props.item.title}</RelatedTitle>
+      <RelatedPrice>{props.item.price}</RelatedPrice>
+    </BannerItem>
   );
 }
 

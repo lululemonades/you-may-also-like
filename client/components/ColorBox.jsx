@@ -1,8 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ColorBoxDiv = styled.div`
+  height: 28px;
+  width: 58px;
+  margin: 2%;
+  &:hover {
+    border: 1px solid black;
+  }
+`;
 
 function ColorBox (props) {
   return (
-    <div>I am a colorbox</div>
+    <ColorBoxDiv style={{ backgroundColor: props.color }} />
   );
 }
 
