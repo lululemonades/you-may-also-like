@@ -8,17 +8,17 @@ app.use(express.static(path.join(__dirname, '../public/')));
 
 app.get('/youMayAlsoLike/:id', (req, res) => {
 
-  const currentItem = parseInt(req.params.id)
-  console.log('here is the current item', currentItem);
-
-  if (currentItem < 96) {
-    db.RelatedItems.find()
-      .then((data) => {
-        const fourRelatedItems = data.slice(currentItem, currentItem + 4);
-        console.log('here is the response data', fourRelatedItems);
-        res.send(fourRelatedItems);
-      });
-  }
+  const currentItem = parseInt(req.params.id);
+  db.RelatedItems.find()
+    .then((data) => {
+      let fourRelatedItems = [];
+      if (currentItem < 96) {
+        fourRelatedItems = data.slice(currentItem, currentItem + 4);
+      } else {
+        fourRelatedItems = data.slice(currentItem - 6, currentItem - 2);
+      }
+      res.send(fourRelatedItems);
+    });
 });
 
 app.listen(3003, () => console.log('listening on port 3003'));

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const exampleData = require('../exampleData.js');
-
 mongoose.connect('mongodb://localhost/youMayAlsoLike');
 
 const db = mongoose.connection;
@@ -18,6 +17,7 @@ const relatedSchema = mongoose.Schema({
   title: String,
   main: String,
   hover: String,
+  price: String,
   color: Array
 });
 

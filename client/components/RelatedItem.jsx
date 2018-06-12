@@ -1,4 +1,5 @@
 import React from 'react';
+import ColorPicker from './ColorPicker.jsx';
 
 function RelatedItem (props) {
   return (
@@ -9,13 +10,14 @@ function RelatedItem (props) {
           alt=""
           src={props.item.main}
           onMouseOver={e => (e.currentTarget.src = props.item.hover)}
-          onFocus={e => (e.currentTarget.src = `${props.item.hover}`)}
-          onMouseOut={e => (e.currentTarget.src = `${props.item.main}`)}
-          onBlur={e => (e.currentTarget.src = `${props.item.main}`)}
+          onFocus={e => (e.currentTarget.src = props.item.hover)}
+          onMouseOut={e => (e.currentTarget.src = props.item.main)}
+          onBlur={e => (e.currentTarget.src = props.item.main)}
         />
-        <div className="color-picker">Color Picker</div>
+        <ColorPicker colors={props.item.color} />
       </div>
-      <div className="related-details">{props.item.title}</div>
+      <div className="related-title">{props.item.title}</div>
+      <div className="related-price">{props.item.price}</div>
     </div>
   );
 }

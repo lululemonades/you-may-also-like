@@ -8,7 +8,7 @@ class YouMayAlsoLike extends React.Component {
     super(props);
     this.state = {
       relateditems: [],
-      productId: 60
+      productId: 100
     };
   }
 
@@ -28,7 +28,7 @@ class YouMayAlsoLike extends React.Component {
     return (
       <div>
         <div>
-          <h1>You may also like</h1>
+          <h1 className='you-may-header'>You may also like</h1>
         </div>
         <RelatedItemList items={this.state.relateditems} />
       </div>
