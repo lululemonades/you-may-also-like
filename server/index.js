@@ -7,8 +7,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../public/')));
 
 app.get('/youMayAlsoLike/:id', (req, res) => {
-
-  const currentItem = parseInt(req.params.id);
+  const currentItem = parseInt(req.params.id, 10);
   db.RelatedItems.find()
     .then((data) => {
       let fourRelatedItems = [];

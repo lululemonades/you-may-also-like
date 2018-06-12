@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ColorPicker from './ColorPicker.jsx';
 
 const RelatedTitle = styled.div`
@@ -45,5 +46,11 @@ function RelatedItem (props) {
     </BannerItem>
   );
 }
+
+RelatedItem.propTypes = {
+  item: PropTypes.shape.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired
+};
 
 export default RelatedItem;

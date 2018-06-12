@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ColorBoxDiv = styled.div`
   height: 28px;
@@ -15,5 +16,9 @@ function ColorBox (props) {
     <ColorBoxDiv style={{ backgroundColor: props.color }} />
   );
 }
+
+ColorBox.propTypes = {
+  color: PropTypes.string.isRequired
+};
 
 export default ColorBox;

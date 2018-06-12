@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ColorBox from './ColorBox.jsx';
 
 const ColorPickerDiv = styled.div`
@@ -24,5 +25,9 @@ function ColorPicker (props) {
     </ColorPickerDiv>
   );
 }
+
+ColorPicker.propTypes = {
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default ColorPicker;
