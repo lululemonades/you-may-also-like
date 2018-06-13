@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ColorPicker from './ColorPicker.jsx';
+import ColorPicker from './ColorPicker';
+
+/* ~~~~~~ Styles ~~~~~~~ */
 
 const RelatedTitle = styled.div`
     position: relative;
@@ -26,12 +28,18 @@ const BannerItem = styled.div`
   margin-left: 2%;
 `;
 
+/* ~~~~~~ Components ~~~~~~~ */
+
 class RelatedItem extends React.Component {
   constructor (props) {
     super(props);
     this.state = { hovering: false };
     this.handleHover = this.handleHover.bind(this);
   }
+
+  // this.setState((prevState) => ({
+  //   hovering: !prevState
+  // }));
 
   handleHover () {
     const currentState = this.state.hovering;
@@ -62,14 +70,15 @@ class RelatedItem extends React.Component {
   }
 
   render () {
+    const { color, title, price } = this.props.item;
     return (
       <BannerItem>
         <ImageWrapper>
           {this.renderImage()}
-          <ColorPicker colors={this.props.item.color} hover={this.handleHover} />
+          <ColorPicker colors={color} hover={this.handleHover} />
         </ImageWrapper>
-        <RelatedTitle>{this.props.item.title}</RelatedTitle>
-        <RelatedPrice>{this.props.item.price}</RelatedPrice>
+        <RelatedTitle>{title}</RelatedTitle>
+        <RelatedPrice>{price}</RelatedPrice>
 
       </BannerItem>
     );

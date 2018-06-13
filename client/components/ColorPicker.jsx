@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ColorBox from './ColorBox.jsx';
+import ColorBox from './ColorBox';
+
+/* ~~~~~~ Styles ~~~~~~~ */
 
 const ColorPickerDiv = styled.div`
     position: absolute;
@@ -18,9 +20,10 @@ const ColorPickerDiv = styled.div`
     cursor: grab;
     &:hover {
       opacity: 1;
-
     }
 `;
+
+/* ~~~~~~ Components ~~~~~~~ */
 
 function ColorPicker (props) {
   return (

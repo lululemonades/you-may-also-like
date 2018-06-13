@@ -4,6 +4,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import RelatedItemList from './components/RelatedItemList.jsx';
 
+/* ~~~~~~ Styles ~~~~~~~ */
+
 const Body = styled.div`
   font-family: 'Josefin Sans', sans-serif;
   background-color: #fafafa;
@@ -18,6 +20,8 @@ const YouMayHeader = styled.h1`
   font-size: 3em;
   font-weight: lighter;
 `;
+
+/* ~~~~~~ Components ~~~~~~~ */
 
 class YouMayAlsoLike extends React.Component {
   constructor (props) {

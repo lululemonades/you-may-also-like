@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import RelatedItem from './RelatedItem.jsx';
+import PropTypes from 'prop-types';
+import RelatedItem from './RelatedItem';
+
+/* ~~~~~~ Styles ~~~~~~~ */
 
 const RelatedItemListWrapper = styled.div`
     display: flex;
@@ -8,14 +11,18 @@ const RelatedItemListWrapper = styled.div`
     margin: 0 2%;
 `;
 
-function RelatedItemList (props) {
-  return (
-    <RelatedItemListWrapper>
-      {props.items.map((item) => (
-        <RelatedItem item={item} key={item.id} />
-      ))}
-    </RelatedItemListWrapper>
-  );
-}
+/* ~~~~~~ Components ~~~~~~~ */
+
+const RelatedItemList = props => (
+  <RelatedItemListWrapper>
+    {props.items.map(item => (
+      <RelatedItem item={item} key={item.id} />
+    ))}
+  </RelatedItemListWrapper>
+);
+
+RelatedItemList.propTypes = {
+  items: PropTypes.shape.isRequired
+};
 
 export default RelatedItemList;

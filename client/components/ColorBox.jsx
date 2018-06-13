@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+/* ~~~~~~ Styles ~~~~~~~ */
+
 const ColorBoxDivWrapper = styled.div`
   padding: 3px
   margin: 20px 3px 20px 3px;
@@ -17,6 +19,8 @@ const ColorBoxDiv = styled.div`
   padding: 1px;
   cursor: pointer;
 `;
+
+/* ~~~~~~ Components ~~~~~~~ */
 
 function ColorBox (props) {
   return (
