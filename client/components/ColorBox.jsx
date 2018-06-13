@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /* ~~~~~~ Styles ~~~~~~~ */
 
 const ColorBoxDivWrapper = styled.div`
-  padding: 3px
+  padding: 3px;
   margin: 20px 3px 20px 3px;
   border: 1px solid transparent;
   &:hover {
