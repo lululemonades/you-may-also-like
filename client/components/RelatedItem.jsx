@@ -26,25 +26,54 @@ const BannerItem = styled.div`
   margin-left: 2%;
 `;
 
-function RelatedItem (props) {
-  return (
-    <BannerItem>
-      <ImageWrapper>
-        <img
-          style={{ width: 300 }}
-          alt=""
-          src={props.item.main}
-          onMouseOver={e => (e.currentTarget.src = props.item.hover)}
-          onFocus={e => (e.currentTarget.src = props.item.hover)}
-          onMouseOut={e => (e.currentTarget.src = props.item.main)}
-          onBlur={e => (e.currentTarget.src = props.item.main)}
-        />
-        <ColorPicker colors={props.item.color} />
-      </ImageWrapper>
-      <RelatedTitle>{props.item.title}</RelatedTitle>
-      <RelatedPrice>{props.item.price}</RelatedPrice>
-    </BannerItem>
-  );
+class RelatedItem extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { hovering: false };
+    this.handleHover = this.handleHover.bind(this);
+  }
+
+  handleHover () {
+    const currentState = this.state.hovering;
+    this.setState({ hovering: !currentState });
+  }
+
+  renderImage () {
+    if (this.state.hovering) {
+      return (<img
+        style={{ width: 300 }}
+        alt=""
+        src={this.props.item.main}
+        onMouseOver={this.handleHover}
+        onFocus={this.handleHover}
+        onMouseOut={this.handleHover}
+        onBlur={this.handleHover}
+      />);
+    }
+    return (<img
+      style={{ width: 300 }}
+      alt=""
+      src={this.props.item.hover}
+      onMouseOver={this.handleHover}
+      onFocus={this.handleHover}
+      onMouseOut={this.handleHover}
+      onBlur={this.handleHover}
+    />);
+  }
+
+  render () {
+    return (
+      <BannerItem>
+        <ImageWrapper>
+          {this.renderImage()}
+          <ColorPicker colors={this.props.item.color} hover={this.handleHover} />
+        </ImageWrapper>
+        <RelatedTitle>{this.props.item.title}</RelatedTitle>
+        <RelatedPrice>{this.props.item.price}</RelatedPrice>
+
+      </BannerItem>
+    );
+  }
 }
 
 RelatedItem.propTypes = {

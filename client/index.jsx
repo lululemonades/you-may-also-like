@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const YouMayHeader = styled.h1`
   text-align: center;
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: lighter;
 `;
 
@@ -24,7 +24,7 @@ class YouMayAlsoLike extends React.Component {
     super(props);
     this.state = {
       relateditems: [],
-      productId: 90
+      productId: 51
     };
   }
 
