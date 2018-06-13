@@ -17,7 +17,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'you-may-bundle.js'
+    filename: 'ymal-module-bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
