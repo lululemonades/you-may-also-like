@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import styled from 'styled-components';
-import RelatedItemList from './components/RelatedItemList.jsx';
+import RelatedItemList from './components/RelatedItemList';
 
 /* ~~~~~~ Styles ~~~~~~~ */
 
