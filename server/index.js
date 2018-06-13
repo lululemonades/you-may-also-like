@@ -1,11 +1,26 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
+const db = require('../db/index.js');
+const cors = require('cors');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, '../public/')));
+
+app.get('/youMayAlsoLike/:id', (req, res) => {
+  const currentItem = parseInt(req.params.id, 10);
+  db.RelatedItems.find()
+    .then((data) => {
+      let fourRelatedItems = [];
+      if (currentItem < 96) {
+        fourRelatedItems = data.slice(currentItem, currentItem + 4);
+      } else {
+        fourRelatedItems = data.slice(currentItem - 6, currentItem - 2);
+      }
+      res.send(fourRelatedItems);
+    });
+});
 
 app.listen(3003, () => console.log('listening on port 3003'));

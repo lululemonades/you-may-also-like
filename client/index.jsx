@@ -1,20 +1,59 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RelatedItemList from './components/RelatedItemList.jsx';
+import axios from 'axios';
+import styled from 'styled-components';
+import RelatedItemList from './components/RelatedItemList';
+
+/* ~~~~~~ Styles ~~~~~~~ */
+
+const Body = styled.div`
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #fafafa;
+`;
+
+const Wrapper = styled.div`
+  padding: 2%;
+`;
+
+const YouMayHeader = styled.h1`
+  text-align: center;
+  font-size: 3em;
+  font-weight: lighter;
+`;
+
+/* ~~~~~~ Components ~~~~~~~ */
 
 class YouMayAlsoLike extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      relateditems: [],
+      productId: 51
+    };
   }
+
+  componentDidMount () {
+    axios.get(`/youMayAlsoLike/${this.state.productId}`)
+      .then((response) => {
+        this.setState({
+          relateditems: response.data
+        });
+      })
+      .catch((error) => {
+        console.log('your get has an error', error);
+      });
+  }
+
   render () {
     return (
-      <div>
-        <div>
-          <h1>You May Also Like</h1>
-        </div>
-        <RelatedItemList />
-      </div>
+      <Body>
+        <Wrapper>
+          <div>
+            <YouMayHeader>You may also like</YouMayHeader>
+          </div>
+          <RelatedItemList items={this.state.relateditems} />
+        </Wrapper>
+      </Body>
     );
   }
 }
