@@ -5,7 +5,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: '/node_modules/',
         loader: 'babel-loader',
         query: {
@@ -17,6 +17,9 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'ymal-module-bundle.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };
