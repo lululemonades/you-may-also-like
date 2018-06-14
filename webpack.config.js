@@ -20,9 +20,9 @@ module.exports = {
     path: path.join(__dirname, 'public'),
     filename: 'ymal-module-bundle.js'
   },
-  externals: {
-    'styled-components': 'styled',
-  },
+  // externals: {
+  //   'styled-components': 'styled'
+  // },
   resolve: {
     extensions: ['.js', '.jsx']
   }

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const exampleData = require('./exampleData.js');
 
 mongoose.connect('mongodb://localhost/youMayAlsoLike');
 
@@ -23,14 +22,6 @@ const relatedSchema = mongoose.Schema({
 });
 
 const RelatedItems = mongoose.model('Related', relatedSchema);
-
-RelatedItems.insertMany(exampleData, (err, docs) => {
-  if (err) {
-    console.log('there was an error adding items to the database');
-  } else {
-    console.log('Many items were successfully added to the database', docs);
-  }
-});
 
 module.exports = {
   RelatedItems
