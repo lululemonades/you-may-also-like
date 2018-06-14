@@ -22,17 +22,15 @@ const ColorBoxDiv = styled.div`
 
 /* ~~~~~~ Components ~~~~~~~ */
 
-function ColorBox (props) {
-  return (
-    <ColorBoxDivWrapper>
-      <ColorBoxDiv
-        style={{ backgroundColor: props.color }}
-        onMouseOver={props.hover}
-        onFocus={props.hover}
-      />
-    </ColorBoxDivWrapper>
-  );
-}
+const ColorBox = props => (
+  <ColorBoxDivWrapper>
+    <ColorBoxDiv
+      style={{ backgroundColor: props.color }}
+      onMouseOver={props.hover}
+      onFocus={props.hover}
+    />
+  </ColorBoxDivWrapper>
+);
 
 ColorBox.propTypes = {
   color: PropTypes.string.isRequired,

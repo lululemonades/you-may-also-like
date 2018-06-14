@@ -13,6 +13,7 @@ const RelatedTitle = styled.div`
     text-transform: capitalize;
     text-align: left;
     margin: 3% 0;
+    cursor: pointer;
 `;
 
 const RelatedPrice = styled.div`
@@ -24,8 +25,26 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
+const ColorPickerDiv = styled.div`
+    position: absolute;
+    background-color: #fafafa;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    bottom: 4px;
+    display: flex;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+`;
+
 const BannerItem = styled.div`
   margin-left: 2%;
+  cursor: grab;
+  &:hover ${ColorPickerDiv} {
+    opacity: 1;
+  } 
 `;
 
 /* ~~~~~~ Components ~~~~~~~ */
@@ -37,10 +56,6 @@ class RelatedItem extends React.Component {
     this.handleHover = this.handleHover.bind(this);
   }
 
-  // this.setState((prevState) => ({
-  //   hovering: !prevState
-  // }));
-
   handleHover () {
     const currentState = this.state.hovering;
     this.setState({ hovering: !currentState });
@@ -49,7 +64,7 @@ class RelatedItem extends React.Component {
   renderImage () {
     if (this.state.hovering) {
       return (<img
-        style={{ width: 300 }}
+        style={{ width: 300, cursor: 'pointer' }}
         alt=""
         src={this.props.item.main}
         onMouseOver={this.handleHover}
@@ -59,7 +74,7 @@ class RelatedItem extends React.Component {
       />);
     }
     return (<img
-      style={{ width: 300 }}
+      style={{ width: 300, cursor: 'pointer' }}
       alt=""
       src={this.props.item.hover}
       onMouseOver={this.handleHover}
@@ -75,11 +90,12 @@ class RelatedItem extends React.Component {
       <BannerItem>
         <ImageWrapper>
           {this.renderImage()}
-          <ColorPicker colors={color} hover={this.handleHover} />
+          <ColorPickerDiv>
+            <ColorPicker colors={color} hover={this.handleHover} isHovering={this.state.hovering} />
+          </ColorPickerDiv>
         </ImageWrapper>
         <RelatedTitle>{title}</RelatedTitle>
         <RelatedPrice>{price}</RelatedPrice>
-
       </BannerItem>
     );
   }
@@ -88,8 +104,11 @@ class RelatedItem extends React.Component {
 RelatedItem.propTypes = {
   item: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired
-    }).isRequired
+    price: PropTypes.string.isRequired,
+    hover: PropTypes.string.isRequired,
+    main: PropTypes.string.isRequired,
+    color: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  }).isRequired
 };
 
 export default RelatedItem;

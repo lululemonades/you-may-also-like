@@ -4,36 +4,19 @@ import PropTypes from 'prop-types';
 import ColorBox from './ColorBox';
 
 /* ~~~~~~ Styles ~~~~~~~ */
-
 const ColorPickerDiv = styled.div`
-    position: absolute;
-    background-color: #fafafa;
-    width: 100%;
-    opacity: 0;
-    overflow: hidden;
-    bottom: 4px;
-    display: flex;
-    transition-property: opacity;
-    transition-duration: 0.4s;
-    transition-timing-function: ease-in-out;
-    transition-delay: initial;
-    cursor: grab;
-    &:hover {
-      opacity: 1;
-    }
+  display: flex;
 `;
 
 /* ~~~~~~ Components ~~~~~~~ */
 
-function ColorPicker (props) {
-  return (
-    <ColorPickerDiv>
-      {props.colors.map((color, index) => (
-        <ColorBox key={color} color={color} hover={props.hover} />
-      ))}
-    </ColorPickerDiv>
-  );
-}
+const ColorPicker = props => (
+  <ColorPickerDiv>
+    {props.colors.map((color, index) => (
+      <ColorBox key={color} color={color} hover={props.hover} />
+    ))}
+  </ColorPickerDiv>
+);
 
 ColorPicker.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,

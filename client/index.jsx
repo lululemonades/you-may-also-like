@@ -6,11 +6,7 @@ import RelatedItemList from './components/RelatedItemList';
 
 /* ~~~~~~ Styles ~~~~~~~ */
 
-const Body = styled.div`
-  
-`;
-
-const Wrapper = styled.div`
+const RelatedWrapper = styled.div`
   padding: 2%;
   font-family: 'Josefin Sans', sans-serif;
   background-color: #fafafa;
@@ -50,12 +46,12 @@ class YouMayAlsoLike extends React.Component {
   render () {
     return (
       <div>
-        <Wrapper>
+        <RelatedWrapper>
           <div>
             <YouMayHeader>You may also like</YouMayHeader>
           </div>
           <RelatedItemList items={this.state.relateditems} />
-        </Wrapper>
+        </RelatedWrapper>
       </div>
     );
   }
