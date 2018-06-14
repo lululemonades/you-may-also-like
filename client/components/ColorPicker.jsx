@@ -29,7 +29,7 @@ function ColorPicker (props) {
   return (
     <ColorPickerDiv>
       {props.colors.map((color, index) => (
-        <ColorBox color={color} hover={props.hover} />
+        <ColorBox key={color} color={color} hover={props.hover} />
       ))}
     </ColorPickerDiv>
   );

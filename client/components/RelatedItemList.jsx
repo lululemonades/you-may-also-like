@@ -7,8 +7,8 @@ import RelatedItem from './RelatedItem';
 
 const RelatedItemListWrapper = styled.div`
     display: flex;
-    align-items: center;
-    margin: 0 2%;
+    justify-content: center;
+    margin: 0 25%;
 `;
 
 /* ~~~~~~ Components ~~~~~~~ */
@@ -22,7 +22,7 @@ const RelatedItemList = props => (
 );
 
 RelatedItemList.propTypes = {
-  items: PropTypes.shape.isRequired
+  items: PropTypes.arrayOf(PropTypes.shape).isRequired
 };
 
 export default RelatedItemList;

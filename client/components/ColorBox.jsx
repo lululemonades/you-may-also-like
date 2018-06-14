@@ -27,7 +27,8 @@ function ColorBox (props) {
     <ColorBoxDivWrapper>
       <ColorBoxDiv
         style={{ backgroundColor: props.color }}
-        onClick={props.hover}
+        onMouseOver={props.hover}
+        onFocus={props.hover}
       />
     </ColorBoxDivWrapper>
   );

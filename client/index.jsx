@@ -7,12 +7,15 @@ import RelatedItemList from './components/RelatedItemList';
 /* ~~~~~~ Styles ~~~~~~~ */
 
 const Body = styled.div`
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: #fafafa;
+  
 `;
 
 const Wrapper = styled.div`
   padding: 2%;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #fafafa;
+  position: sticky;
+  position: -webkit-sticky;
 `;
 
 const YouMayHeader = styled.h1`
@@ -46,14 +49,14 @@ class YouMayAlsoLike extends React.Component {
 
   render () {
     return (
-      <Body>
+      <div>
         <Wrapper>
           <div>
             <YouMayHeader>You may also like</YouMayHeader>
           </div>
           <RelatedItemList items={this.state.relateditems} />
         </Wrapper>
-      </Body>
+      </div>
     );
   }
 }

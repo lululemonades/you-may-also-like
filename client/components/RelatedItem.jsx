@@ -86,9 +86,10 @@ class RelatedItem extends React.Component {
 }
 
 RelatedItem.propTypes = {
-  item: PropTypes.shape.isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default RelatedItem;
