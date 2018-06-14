@@ -22,7 +22,7 @@ const ColorBoxDiv = styled.div`
 
 /* ~~~~~~ Components ~~~~~~~ */
 
-const ColorBox = props => (
+const ColorBoxes = props => (
   <ColorBoxDivWrapper>
     <ColorBoxDiv
       style={{ backgroundColor: props.color }}
@@ -32,9 +32,9 @@ const ColorBox = props => (
   </ColorBoxDivWrapper>
 );
 
-ColorBox.propTypes = {
+ColorBoxes.propTypes = {
   color: PropTypes.string.isRequired,
   hover: PropTypes.func.isRequired
 };
 
-export default ColorBox;
+export default ColorBoxes;

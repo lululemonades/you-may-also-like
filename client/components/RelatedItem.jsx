@@ -10,7 +10,6 @@ const RelatedTitle = styled.div`
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.2;
-    text-transform: capitalize;
     text-align: left;
     margin: 3% 0;
     cursor: pointer;
