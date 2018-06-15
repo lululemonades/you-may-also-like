@@ -1,25 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import styled from 'styled-components';
 import RelatedItemList from './components/RelatedItemList';
-
-/* ~~~~~~ Styles ~~~~~~~ */
-
-const RelatedWrapper = styled.div`
-  padding: 2%;
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: #fafafa;
-  z-index: 2;
-`;
-
-const YouMayHeader = styled.h1`
-  text-align: center;
-  font-size: 3em;
-  font-weight: lighter;
-`;
-
-/* ~~~~~~ Components ~~~~~~~ */
 
 class YouMayAlsoLike extends React.Component {
   constructor (props) {
@@ -45,12 +27,12 @@ class YouMayAlsoLike extends React.Component {
   render () {
     return (
       <div>
-        <RelatedWrapper>
+        <div className="related-wrapper">
           <div>
-            <YouMayHeader>You may also like</YouMayHeader>
+            <h1 className="you-may-header">You may also like</h1>
           </div>
           <RelatedItemList items={this.state.relateditems} />
-        </RelatedWrapper>
+        </div>
       </div>
     );
   }

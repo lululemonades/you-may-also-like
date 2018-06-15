@@ -1,24 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import RelatedItem from './RelatedItem';
 
-/* ~~~~~~ Styles ~~~~~~~ */
-
-const RelatedItemListWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 0 25%;
-`;
-
-/* ~~~~~~ Components ~~~~~~~ */
-
 const RelatedItemList = props => (
-  <RelatedItemListWrapper>
+  <div className="related-item-list-wrapper">
     {props.items.map(item => (
       <RelatedItem item={item} key={item.id} />
     ))}
-  </RelatedItemListWrapper>
+  </div>
 );
 
 RelatedItemList.propTypes = {
