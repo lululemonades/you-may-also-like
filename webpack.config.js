@@ -8,8 +8,8 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: '/node_modules/',
         loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015'],
+        options: {
+          presets: ['react', 'es2015', 'env'],
           plugins: ['babel-plugin-styled-components']
         }
       }
@@ -20,9 +20,6 @@ module.exports = {
     path: path.join(__dirname, 'public'),
     filename: 'ymal-module-bundle.js'
   },
-  // externals: {
-  //   'styled-components': 'styled'
-  // },
   resolve: {
     extensions: ['.js', '.jsx']
   }

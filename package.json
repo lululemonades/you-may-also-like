@@ -39,6 +39,7 @@
     "babel-plugin-styled-components": "^1.5.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-standard": "^1.6.6",
     "jest": "^23.1.0",
