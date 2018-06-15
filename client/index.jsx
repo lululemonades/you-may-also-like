@@ -10,8 +10,6 @@ const RelatedWrapper = styled.div`
   padding: 2%;
   font-family: 'Josefin Sans', sans-serif;
   background-color: #fafafa;
-  position: sticky;
-  position: -webkit-sticky;
 `;
 
 const YouMayHeader = styled.h1`
