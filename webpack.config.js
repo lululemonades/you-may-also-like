@@ -1,7 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, '/client/index.jsx'),
+  entry: ['./client/index.jsx', './public/main.scss'],
+  output: {
+    filename: 'ymal-module-bundle.js',
+    path: path.join(__dirname, 'public')
+  },
   module: {
     rules: [
       {
@@ -9,20 +13,15 @@ module.exports = {
         exclude: '/node_modules/',
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
-          plugins: ['babel-plugin-styled-components']
+          presets: ['react', 'es2015']
         }
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
-
   },
-  output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'ymal-module-bundle.js'
-  },
-  // externals: {
-  //   'styled-components': 'styled'
-  // },
   resolve: {
     extensions: ['.js', '.jsx']
   }

@@ -1,21 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ColorBoxes from './ColorBoxes';
 
-/* ~~~~~~ Styles ~~~~~~~ */
-const ColorPickerDiv = styled.div`
-  display: flex;
-`;
-
-/* ~~~~~~ Components ~~~~~~~ */
-
 const ColorPicker = props => (
-  <ColorPickerDiv>
+  <div className="color-picker-div">
     {props.colors.map((color, index) => (
       <ColorBoxes key={color} color={color} hover={props.hover} />
     ))}
-  </ColorPickerDiv>
+  </div>
 );
 
 ColorPicker.propTypes = {
