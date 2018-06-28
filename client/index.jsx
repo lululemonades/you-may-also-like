@@ -7,13 +7,23 @@ class YouMayAlsoLike extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      relateditems: [],
-      productId: 51
+      relateditems: []
     };
+    this.getRelatedItems = this.getRelatedItems.bind(this);
   }
 
   componentDidMount () {
-    axios.get(`/youMayAlsoLike/${this.state.productId}`)
+    let id = window.location.pathname.slice(1);
+
+    if (!id) {
+      id = 1;
+    }
+
+    this.getRelatedItems(id);
+  }
+
+  getRelatedItems (id) {
+    axios.get(`/youMayAlsoLike/${id}`)
       .then((response) => {
         this.setState({
           relateditems: response.data
@@ -31,7 +41,7 @@ class YouMayAlsoLike extends React.Component {
           <div>
             <h1 className="you-may-header">You may also like</h1>
           </div>
-          <RelatedItemList items={this.state.relateditems} />
+          <RelatedItemList items={this.state.relateditems} handleReq={this.getRelatedItems} />
         </div>
       </div>
     );
