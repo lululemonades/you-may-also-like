@@ -25,4 +25,8 @@ app.get('/youMayAlsoLike/:id', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('listening on port 3003'));
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
