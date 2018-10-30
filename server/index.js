@@ -25,4 +25,4 @@ app.get('/youMayAlsoLike/:id', (req, res) => {
     });
 });
 
-app.listen(3003, () => console.log('listening on port 3003'));
+app.listen(3000, () => console.log('listening on port 3003'));
