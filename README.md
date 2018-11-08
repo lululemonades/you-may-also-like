@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> A front-end clone of an product details page. This module is a related items component and carousel. 
 
 ## Related Projects
 
