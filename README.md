@@ -4,10 +4,12 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/lululemonades/you-may-also-like
+  - https://github.com/lululemonades/productDetails
+  - https://github.com/lululemonades/image-carousel
+  - https://github.com/lululemonades/lulu-nav-bar
+  - https://github.com/lululemonades/reviews-component
+  - https://github.com/lululemonades/omarProxy
 
 ## Table of Contents
 
